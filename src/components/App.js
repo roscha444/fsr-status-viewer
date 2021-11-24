@@ -1,13 +1,16 @@
 import 'bulma/css/bulma.min.css';
 import StatusContext from "../context/StatusContext/StatusContext";
 import React, { useEffect, useContext } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt, faHistory } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
+import ClipLoader from "react-spinners/ClipLoader";
+
 const App = () => {
 
   const statusContext = useContext(StatusContext);
   const {
-    open,
+    isOpen,
+    isLoading,
     getStatus
   } = statusContext;
 
@@ -29,8 +32,13 @@ const App = () => {
           <div class="columns is-multiline has-text-centered">
             <div class="column"></div>
             <div class="column is-three-quarters">
-              {
-                open ?
+              {isLoading ?
+                <ClipLoader
+                  size={50}
+                  loading={isLoading}
+                />
+                :
+                isOpen ?
                   (
                     <article class="message is-success has-text-centered is-medium">
                       <div class="message-body">
@@ -48,7 +56,6 @@ const App = () => {
                     </article>
                   )
               }
-
             </div>
             <div class="column"></div>
           </div>
@@ -61,7 +68,7 @@ const App = () => {
               <div class="column"></div>
             </div>
           </div>
-        </div>
+        </div >
       </section >
       <footer class="footer">
         <div class="content has-text-centered">

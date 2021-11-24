@@ -7,7 +7,8 @@ import StatusContext from "./StatusContext";
 
 const StatusState = (props) => {
     const initialState = {
-        open: false
+        isOpen: false,
+        isLoading: false
     };
 
     const [state, dispatch] = useReducer(StatusReducer, initialState);
@@ -33,7 +34,8 @@ const StatusState = (props) => {
     return (
         <StatusContext.Provider
             value={{
-                open: state.open,
+                isOpen: state.isOpen,
+                isLoading: state.isLoading,
                 getStatus
             }}>
             {props.children}
