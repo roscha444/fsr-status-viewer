@@ -7,7 +7,7 @@ class InformationText extends Component {
     render() {
         return (
             <Fragment>
-                <div class="columns is-mobile is-centered columns is-multiline">
+                <div className="columns is-centered columns is-multiline">
                     <div className="column is-one-quarter content is-medium has-text-centered"><FontAwesomeIcon icon={faHistory} /> Letzte Änderung: kürzlich</div>
                     <div className="column is-one-quarter content is-medium has-text-centered"><FontAwesomeIcon icon={faMapMarkerAlt} /> Hans-Meerwein-Straße, Mehrzweckgebäudes 04D04</div>
                 </div>

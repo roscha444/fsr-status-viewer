@@ -21,7 +21,7 @@ const StatusMessage = () => {
     }, []);
 
     return (
-        <div class="columns is-mobile is-centered">
+        <div className="columns is-mobile is-centered">
             <div className="column is-three-quarters">
                 {isLoading ?
                     <div className="has-text-centered"><ClipLoader size={50} loading={isLoading} /></div> : error ? <WarningMessage /> : isOpen ? <OpenMessage /> : <ClosedMessage />
