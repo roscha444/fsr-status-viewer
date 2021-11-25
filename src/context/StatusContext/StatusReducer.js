@@ -1,4 +1,4 @@
-import { SET_STATUS, SET_LOADING } from "../types";
+import { SET_STATUS, SET_LOADING, SET_ERROR } from "../types";
 
 const StatusReducer = (state, action) => {
     switch (action.type) {
@@ -11,6 +11,11 @@ const StatusReducer = (state, action) => {
             return {
                 ...state,
                 isLoading: !state.isLoading
+            };
+        case SET_ERROR:
+            return {
+                ...state,
+                error: true
             };
         default:
             return state;

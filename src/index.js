@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import Dashboard from './components/Dashboard';
 import StatusState from './context/StatusContext/StatusState.js';
 
 ReactDOM.render(
   <React.StrictMode>
     <StatusState>
-      <App />
+      <Dashboard />
     </StatusState>
   </React.StrictMode>,
   document.getElementById('root')

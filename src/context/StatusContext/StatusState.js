@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import axios from "axios";
-import { SET_STATUS, SET_LOADING } from "../types";
+import { SET_ERROR, SET_STATUS, SET_LOADING } from "../types";
 import StatusReducer from "./StatusReducer";
 import StatusContext from "./StatusContext";
 
@@ -8,26 +8,28 @@ import StatusContext from "./StatusContext";
 const StatusState = (props) => {
     const initialState = {
         isOpen: false,
-        isLoading: false
+        isLoading: true,
+        error: false
     };
 
     const [state, dispatch] = useReducer(StatusReducer, initialState);
 
     const getStatus = async () => {
-        dispatch({ type: SET_LOADING });
 
-        const res = await axios.get(
-            process.env.REACT_APP_API_URL,
-            {
-                headers: {
-                    "Content-Type": "application/json",
+        try {
+            const res = await axios.get(
+                process.env.REACT_APP_API_URL,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    }
                 }
-            }
-        );
+            )
 
-        console.log(res);
-
-        dispatch({ type: SET_STATUS, payload: res.data.open });
+            dispatch({ type: SET_STATUS, payload: res.data.open });
+        } catch (e) {
+            dispatch({ type: SET_ERROR });
+        }
         dispatch({ type: SET_LOADING });
     };
 
@@ -36,6 +38,7 @@ const StatusState = (props) => {
             value={{
                 isOpen: state.isOpen,
                 isLoading: state.isLoading,
+                error: state.error,
                 getStatus
             }}>
             {props.children}
