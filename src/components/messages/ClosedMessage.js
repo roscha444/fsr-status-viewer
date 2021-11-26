@@ -4,7 +4,7 @@ class ClosedMessage extends Component {
 
     render() {
         return (
-            <article className="message is-danger is-medium">
+            <article className="message is-danger has-text-centered is-medium">
                 <div className="message-body">
                     Der Fachschaftsraum ist gerade leider geschlossen!
                 </div>
