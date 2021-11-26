@@ -5,4 +5,4 @@
 
 Commits to the master branch triggers a automatic build.
 
-Automatic build can be found here: https://fsr-status-viewer.onrender.com
+Automatic build can be found here: https://fsr.dev.fs-matheinfo.de
