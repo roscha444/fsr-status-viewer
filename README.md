@@ -6,6 +6,8 @@
 Build the image on your own machine and pass the api url as argument.
 Docker build with the default api url can be found here
 
+https://hub.docker.com/r/roscha444/fsr-status-viewer
+
 ### build with custom arguments
 
 docker build --build-arg API_URL=http://custom . -t roscha444/fsr-status-viewer
